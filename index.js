@@ -7,36 +7,38 @@ inquirer
         {
             type: 'input',
             message: 'What is your title?',
-            name: 'description',
+            name: 'title',
           },
           {
             type: 'input',
-            message: 'What is your password?',
-            name: 'table of contents',
-          },
-          {
-            type: 'input',
-            message: 'What is your password?',
-            name: 'table of contents',
-          },
-          {
-            type: 'input',
-            message: 'Re-enter password to confirm:',
-            name: 'installation',
-          },
-          {
-            type: 'input',
-            message: 'What is your user name?',
-            name: 'usage',
-          },
-          {
-            type: 'input',
-            message: 'What is your password?',
+            message: 'Any licensing',
             name: 'license',
           },
           {
             type: 'input',
-            message: 'Re-enter password to confirm:',
+            message: 'What are your contents?',
+            name: 'contents',
+          },
+          {
+            type: 'input',
+            message: 'What is the description of your site?',
+            name: 'description',
+          },
+          
+          {
+            type: 'input',
+            message: 'What type of installation?',
+            name: 'installation',
+          },
+          {
+            type: 'input',
+            message: 'What will this site be used for?',
+            name: 'usage',
+          },
+          
+          {
+            type: 'input',
+            message: '',
             name: 'contributing',
           },
           {
@@ -50,7 +52,34 @@ inquirer
             name: 'questions',
           },
     ])
+    .then(answers => {
+        `
+        #Title
+            ${answers.title}
+        
+        ##License
+            ${answers.license}
 
-    fs.readFile('data.csv', 'utf8', (error, data) =>
-        error ? console.error(error) : console.log(data)
-    );
+        ##Description
+            ${answers.description}
+
+        ##Installation
+            ${answers.installation}
+
+        ##Usage
+            ${answers.usage}
+
+        ##Contributions
+            ${answers.contributing}
+
+        ##Testing
+            ${answers.tests}
+
+        ##Questions
+            ${answers.questions}
+        `
+    })
+    
+    fs.writeFile("myanswers.md", thingtosave, (err)=>{
+        err ? console.log(err) : console.log("File written!");
+    })
