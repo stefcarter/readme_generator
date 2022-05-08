@@ -33,17 +33,24 @@ function generateMarkdown(data) {
   // data should have a license badge, license link, license section
   // render functions are going to be used here
   // you have to figure out why...
-  let license = data.license
+  // let license = data.license
   return (
   `
-  # Title
-  ${data.title}
-        
-  ## License
-    ${data.license}
-
+  # ${data.title}
+  ----
+  ## Table of Contents
+  - [License](#license)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributions](#contributing)
+  - [Tests](#testing)
+  
   ## Description
     ${data.description}
+
+  ## License
+    ${data.license}
 
   ## Installation
     ${data.installation}
@@ -57,10 +64,10 @@ function generateMarkdown(data) {
   ## Testing
     ${data.tests}
 
+  ## Questions
+   [Testing file.]
 
-
-  ---  
-
+  ----
     
   `);
 }

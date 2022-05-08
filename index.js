@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const md = require('./utils/generateMarkdown.js');
-const fileName = "READMEexample.md"
+const fileName = "README.md"
 
 const questions = [
         {
@@ -11,23 +11,17 @@ const questions = [
         name: 'title',
         },
         {
+        type: 'input',
+        message: 'What is the description of your site?',
+        name: 'description',
+        },
+        {
         type: 'list',
         message: 'What kind of license should your project have?',
         name: 'license',
         choices: ['MIT', 'GNU'],
         default: ['MIT'],
         },
-        {
-        type: 'input',
-        message: 'What are your contents?',
-        name: 'contents',
-        },
-        {
-        type: 'input',
-        message: 'What is the description of your site?',
-        name: 'description',
-        },
-          
         {
         type: 'input',
         message: 'What type of installation?',
