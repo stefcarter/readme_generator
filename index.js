@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 
 const fs = require('fs');
+const md = require('./utils/generateMarkdown.js');
+const fileName = "READMEexample.md"
 
-inquirer
-    .prompt([
+const questions = [
         {
         type: 'input',
         message: 'What is your title?',
@@ -53,37 +54,21 @@ inquirer
         message: 'Got questions?',
         name: 'questions',
         },
-    ])
-    .then(answers => {
-        console.log(answers)
-        let thingtosave =
-        `
-        #Title
-            ${answers.title}
-        
-        ##License
-            ${answers.license}
+    ]
 
-        ##Description
-            ${answers.description}
+function writeToFile(fileName, fileData) {
+    fs.writeFile(fileName, fileData, (err) => {
+        err ? console.error(err) : console.log('File Written');
+    });
+}
 
-        ##Installation
-            ${answers.installation}
+function init() {
+    inquirer
+    .prompt(questions)
+    .then(data => {
+        const fileData = md(data)
+        writeToFile(fileName, fileData)
+    });
+}
 
-        ##Usage
-            ${answers.usage}
-
-        ##Contributions
-            ${answers.contributing}
-
-        ##Testing
-            ${answers.tests}
-
-        ##Questions
-            ${answers.questions}
-        `
-    
-    fs.writeFile("answers.md", thingtosave, (err)=>{
-        err ? console.log(err) : console.log("File written!");
-    })
-})
+init()
