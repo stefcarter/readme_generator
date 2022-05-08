@@ -10,9 +10,11 @@ inquirer
         name: 'title',
         },
         {
-        type: 'input',
-        message: 'Any licensing',
+        type: 'list',
+        message: 'What kind of license should your project have?',
         name: 'license',
+        choices: ['MIT', 'GNU'],
+        default: ['MIT'],
         },
         {
         type: 'input',
