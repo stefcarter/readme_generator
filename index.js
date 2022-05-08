@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const md = require('./utils/generateMarkdown.js');
-const fileName = "README.md"
+const fileName = "README1.md"
 
 const questions = [
         {
