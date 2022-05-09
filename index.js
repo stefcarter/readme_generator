@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const md = require('./utils/generateMarkdown.js');
-const fileName = "README1.md"
+const fileName = "README5.md"
 
 const questions = [
         {
@@ -48,6 +48,12 @@ const questions = [
         message: 'Got questions?',
         name: 'questions',
         },
+        {
+        type: 'input',
+        message: 'Whats your email?',
+        name: 'email',
+        },
+            
     ]
 
 function writeToFile(fileName, fileData) {

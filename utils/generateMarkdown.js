@@ -16,9 +16,9 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   switch (license) {
     case 'MIT':
-      return '![License: MIT](https://opensource.org/licenses/MIT)';
+      return '[License: MIT](https://opensource.org/licenses/MIT)';
     case 'GNU':
-      return '![License: GPL v3](https://www.gnu.org/licenses/gpl-3.0)';
+      return '[License: GPL v3](https://www.gnu.org/licenses/gpl-3.0)';
     default:
       return '';
   };
@@ -33,10 +33,13 @@ function generateMarkdown(data) {
   // data should have a license badge, license link, license section
   // render functions are going to be used here
   // you have to figure out why...
-  // let license = data.license
+  let license = data.license
   return (
   `
+  
   # ${data.title}
+
+  ${renderLicenseBadge(license)}
   ----
   ## Table of Contents
   - [License](#license)
@@ -50,7 +53,10 @@ function generateMarkdown(data) {
     ${data.description}
 
   ## License
-    ${data.license}
+  
+    The project is licensed under ${data.license}
+    <br>
+    ${renderLicenseLink(license)}
 
   ## Installation
     ${data.installation}
@@ -65,7 +71,11 @@ function generateMarkdown(data) {
     ${data.tests}
 
   ## Questions
-   [Testing file.]
+   You can reach me at ${data.email}
+   <br>
+   or
+   <br>
+   Find me at https://github.com/stefcarter
 
   ----
     
