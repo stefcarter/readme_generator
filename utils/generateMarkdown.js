@@ -75,7 +75,7 @@ function generateMarkdown(data) {
    <br>
    or
    <br>
-   Find me at https://github.com/stefcarter
+   Find me at ${data.github}
 
   ----
     
