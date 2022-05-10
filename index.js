@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const md = require('./utils/generateMarkdown.js');
-const fileName = "README5.md"
+const fileName = "README.md"
 
 const questions = [
         {
@@ -42,11 +42,6 @@ const questions = [
         type: 'input',
         message: 'What tests are done?',
         name: 'tests',
-        },
-        {
-        type: 'input',
-        message: 'Got questions?',
-        name: 'questions',
         },
         {
         type: 'input',
